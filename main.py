@@ -32,3 +32,20 @@ async def main():
 
 with client:
     client.loop.run_until_complete(main())
+
+from telethon.tl.functions.channels import GetFullChannelRequest
+
+# ... আগের কোড ...
+
+async def main():
+    # চ্যানেলে বর্তমানে কতজন আছে তা চেক করা
+    full_channel = await client(GetFullChannelRequest(target_channel))
+    current_count = full_channel.full_chat.participants_count
+    
+    print(f"বর্তমানে চ্যানেলে মেম্বার আছে: {current_count}")
+
+    if current_count >= 200:
+        print("দুঃখিত! চ্যানেলে ২০০ জন পূর্ণ হয়ে গেছে। আর মেম্বার অ্যাড করা যাবে না।")
+        return # এখানেই কোড থেমে যাবে
+
+    # ... এরপর মেম্বার অ্যাডিং শুরু হবে ...
