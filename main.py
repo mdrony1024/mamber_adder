@@ -5,7 +5,7 @@ from telethon.tl.functions.channels import InviteToChannelRequest
 api_id = 21678674 
 api_hash = 'c735dd88db95b39fefdb0e1798da1023'
 target_channel = '@theronystudio'
-source_group = '@FF_Community_BD' # উদা: '@test_group'
+source_group = 'https://t.me/targonflix' # উদা: '@test_group'
 
 client = TelegramClient('my_session', api_id, api_hash)
 
